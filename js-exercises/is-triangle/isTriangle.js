@@ -1,9 +1,9 @@
 function isTriangle(...sidesArray) {
-  let isTriangleBool = (( sidesArray[0] < sidesArray[1] + sidesArray[2] ) && ( sidesArray[1] < sidesArray[2] + sidesArray[0] ) && ( sidesArray[2] < sidesArray[0] + sidesArray[1] ));
-  if( sidesArray.length == 3 && isTriangleBool ){
-    return true;
-  } 
-  return false;
+  const check1 = (sidesArray[0] < sidesArray[1] + sidesArray[2]);
+  const check2 = (sidesArray[2] < sidesArray[0] + sidesArray[1]);
+  const check3 = (sidesArray[1] < sidesArray[2] + sidesArray[0]);
+  const isTriangleBool = (check1 && check2 && check3);
+  return (sidesArray.length === 3 && isTriangleBool);
 }
 
 export {
