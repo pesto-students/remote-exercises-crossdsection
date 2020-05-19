@@ -1,18 +1,9 @@
-function isTriangle() {
-  let triangleFound = false;
-  let sidesArray = Array.from(arguments);
-  
-  Array.prototype.checkGreater = function (i,j,k ){
-    if( this[i] < this[j] + this[k] ){
-      return true;
-    }
-    return false;
-  }
-
-  if( sidesArray.length == 3 && (sidesArray.checkGreater(0,1,2) && sidesArray.checkGreater(1,2,0) && sidesArray.checkGreater(0,2,1)) ){
-    triangleFound = true;
+function isTriangle(...sidesArray) {
+  let isTriangleBool = (( sidesArray[0] < sidesArray[1] + sidesArray[2] ) && ( sidesArray[1] < sidesArray[2] + sidesArray[0] ) && ( sidesArray[2] < sidesArray[0] + sidesArray[1] ));
+  if( sidesArray.length == 3 && isTriangleBool ){
+    return true;
   } 
-  return triangleFound;
+  return false;
 }
 
 export {

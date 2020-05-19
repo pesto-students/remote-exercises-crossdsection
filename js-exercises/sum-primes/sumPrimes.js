@@ -7,9 +7,7 @@ function isPrime(n){
   return true;
 }
 
-function sumPrimes() {
-  let received = arguments[0];
-
+function sumPrimes( received ) {
   let sum = 0;
   for( var j = 2; j <= received; j++ ){
     if( isPrime(j) ){

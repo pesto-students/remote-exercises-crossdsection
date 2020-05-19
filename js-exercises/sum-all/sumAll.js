@@ -1,17 +1,15 @@
-function sumAll() {
-  if( arguments[0][0] > arguments[0][1] ){
-    let tmp = arguments[0][0];
-    arguments[0][0] = arguments[0][1];
-    arguments[0][1] = tmp;
+function sumAll( [initial,end] ) {
+  if( initial > end ){
+    let tmp = initial;
+    initial = end;
+    end = tmp;
   }
-
-  let [initial,end] = arguments[0];
   let sum = 0;
-
   do {
     sum += initial;
     initial++;
   } while( initial <= end );
+  
   return sum;
 }
 

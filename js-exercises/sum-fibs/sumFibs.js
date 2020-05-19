@@ -1,5 +1,4 @@
-function sumFibs() {
-  let received = arguments[0];
+function sumFibs( received ) {
   let first = 1;
   let second = 1;
   let sum = first;
