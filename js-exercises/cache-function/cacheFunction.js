@@ -1,10 +1,11 @@
 function cacheFunction(mockFn) {
   const cacheObject = {};
-  return function (mockArg) {
-    if (!(mockArg in cacheObject)) {
-      cacheObject[mockArg] = mockFn(mockArg);
+  return function (...mockArgs) {
+    const mockArgIndex = mockArgs.join('_');
+    if (!(mockArgIndex in cacheObject)) {
+      cacheObject[mockArgIndex] = mockFn(...mockArgs);
     }
-    return cacheObject[mockArg];
+    return cacheObject[mockArgIndex];
   };
 }
 
