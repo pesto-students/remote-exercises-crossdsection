@@ -39,5 +39,21 @@ describe('cacheFunction', () => {
 
     expect(foo).toHaveBeenCalledTimes(3);
     expect(foo1).toHaveBeenCalledTimes(3);
+
+    const foo2 = jest.fn().mockImplementation((...args) => {
+      var sum = 0;
+      for( var i = 0; i < args.length; i++ ){
+        sum += args[i];
+      }
+      return sum;
+    });
+    const myCachedFunction2 = cacheFunction(foo2);
+    expect(myCachedFunction2(1,2)).toBe(3);
+    expect(myCachedFunction2(1,2)).toBe(3);
+    expect(myCachedFunction2(1,5,6,2)).toBe(14);
+    expect(myCachedFunction2(1,5,6,2)).toBe(14);
+    expect(myCachedFunction2(1,6,5,2)).toBe(14);
+
+    expect(foo2).toHaveBeenCalledTimes(3);
   });
 });
