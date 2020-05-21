@@ -1,9 +1,9 @@
-function cacheFunction(passedFn) {
+function cacheFunction(fn) {
   const cacheObject = {};
-  return function (...passedArgs) {
-    const passedArgIndex = passedArgs.join('_');
+  return function (...args) {
+    const passedArgIndex = args.join('_');
     if (!cacheObject.hasOwnProperty(passedArgIndex)) {
-      cacheObject[passedArgIndex] = passedFn(...passedArgs);
+      cacheObject[passedArgIndex] = fn(...args);
     }
     return cacheObject[passedArgIndex];
   };
