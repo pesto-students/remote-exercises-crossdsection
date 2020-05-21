@@ -2,10 +2,6 @@ function generateReverseArray(num) {
   return num.split('').reverse();
 }
 
-function returnZeroForEmptyString(string) {
-  return (string.length > 0) ? string : 0;
-}
-
 function addDigits(indexToAdd, numberMap, carryForward) {
   let sum = parseInt(carryForward, 10);
   for (let index = 0; index < numberMap.length; index++) {
@@ -13,10 +9,9 @@ function addDigits(indexToAdd, numberMap, carryForward) {
       sum += parseInt(numberMap[index][indexToAdd], 10);
     }
   }
-  const sumDigitArray = sum.toString().split('');
   return [
-    returnZeroForEmptyString(sumDigitArray.pop()),
-    returnZeroForEmptyString(sumDigitArray.join('')),
+    sum % 10,
+    Math.floor(sum / 10),
   ];
 }
 
