@@ -1,21 +1,17 @@
-function duplicateLetters( text ) {
-  const objDuplicateCount = {};
-  let maxDuplicateCount = 0;
-  const stringArray = text.split('');
-  for (let i = 0; i < stringArray.length; i++) {
-    if( objDuplicateCount[ stringArray[i] ] == null ) {
-      objDuplicateCount[ stringArray[i] ] = 0;
+function duplicateLetters(text) {
+  const frequency = {};
+  let maxFrequency = 0;
+  const alphabets = text.split('');
+  for (const alphabet of alphabets) {
+    if (frequency[alphabet] == null) {
+      frequency[alphabet] = 0;
     }
-    objDuplicateCount[ stringArray[i] ]++;
-    if ( objDuplicateCount[ stringArray[i] ] > 1 && objDuplicateCount[ stringArray[i] ] > maxDuplicateCount ) {
-      maxDuplicateCount = objDuplicateCount[ stringArray[i] ];
+    frequency[alphabet] += 1;
+    if (frequency[alphabet] > 1 && frequency[alphabet] > maxFrequency) {
+      maxFrequency = frequency[alphabet];
     }
   }
-  if ( maxDuplicateCount > 0 ) {
-    return maxDuplicateCount; 
-  } else {
-    return false; 
-  }
+  return (maxFrequency > 0) ? maxFrequency : false;
 }
 
 export {
