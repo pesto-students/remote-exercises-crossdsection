@@ -1,15 +1,13 @@
-function sumAll( [initial,end] ) {
-  if( initial > end ){
-    let tmp = initial;
-    initial = end;
-    end = tmp;
+function sumAll([lowerBound, upperBound]) {
+  if (lowerBound > upperBound) {
+    const tmp = lowerBound;
+    lowerBound = upperBound;
+    upperBound = tmp;
   }
   let sum = 0;
-  do {
-    sum += initial;
-    initial++;
-  } while( initial <= end );
-  
+  for (lowerBound; lowerBound <= upperBound; lowerBound++) {
+    sum += lowerBound;
+  }
   return sum;
 }
 
